@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.2",
+  "transcription_id": "765445ec-850c-481e-82ca-f44e83191418",
+  "status": "completed",
+  "audio": {
+    "audio_id": "chamada-123",
+    "file_name": "chamada-123.mp3",
+    "playback_url": null,
+    "channels": 2,
+    "sample_rate_hz": 8000,
+    "duration_seconds": 107.0
+  },
+  "speakers": [
+    {
+      "channel": 0,
+      "speaker": "cliente"
+    },
+    {
+      "channel": 1,
+      "speaker": "operador"
+    }
+  ],
+  "timeline": [
+    {
+      "id": "turn-000001",
+      "channel": 0,
+      "speaker": "cliente",
+      "start_seconds": 0.32,
+      "end_seconds": 2.41,
+      "text": "bom dia falo com carlos"
+    },
+    {
+      "id": "turn-000002",
+      "channel": 1,
+      "speaker": "operador",
+      "start_seconds": 2.8,
+      "end_seconds": 3.91,
+      "text": "sim sou eu"
+    }
+  ],
+  "full_text": "cliente: bom dia falo com carlos\noperador: sim sou eu",
+  "processing": {
+    "engine": "openai-whisper",
+    "device": "cpu",
+    "duration_seconds": 18.2,
+    "realtime_factor": 0.17
+  }
+}

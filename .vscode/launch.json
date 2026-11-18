@@ -1,0 +1,67 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "1. INICIAR API PARA O ATLAS",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/api_main.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "2. TRANSCREVER PENDENTES PELO ROBÔ",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/main.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--input-dir",
+                "${workspaceFolder}/audios",
+                "--output-dir",
+                "${workspaceFolder}/output",
+                "--max-audios",
+                "${input:maxAudios}",
+                "--recursive",
+                "--debug"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "3. TESTES AUTOMATIZADOS",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "unittest",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "discover",
+                "-s",
+                "tests",
+                "-v"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "maxAudios",
+            "type": "promptString",
+            "description": "Quantos audios pendentes deseja transcrever?",
+            "default": "10"
+        }
+    ]
+}

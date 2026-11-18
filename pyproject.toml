@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robo-transcricao-audios"
+version = "0.1.0"
+description = "Transcrição offline de chamadas estéreo com OpenAI Whisper"
+requires-python = ">=3.11"
+dependencies = [
+    "python-dotenv>=1.0,<2",
+    "numpy>=1.26,<3",
+    "torch>=2.6,<3",
+    "openai-whisper>=20250625",
+    "fastapi>=0.116,<1",
+    "uvicorn[standard]>=0.35,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8,<9",
+    "ruff>=0.9",
+]
+
+[project.scripts]
+transcrever-openai-whisper = "src.runners.transcricao:executar"
+transcricao-api = "src.runners.api:executar"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
